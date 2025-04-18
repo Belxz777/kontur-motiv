@@ -1,0 +1,56 @@
+[
+  {
+    "id": "0839ac98-24b3-4370-bfdf-7afad71fec48",
+    "title": "Экспертность",
+    "description": "Помогать принимать важные решения, задавать стандарты в команде.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "eb1c9583-7f36-4e65-97ef-6eba9ccb4917",
+    "title": "Заработок",
+    "description": "Ваш труд должен справедливо вознаграждаться, для вас важна возможность для роста дохода.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "53f39adf-095f-4105-8365-0bfd7717f5ac",
+    "title": "Вклад",
+    "description": "Вы хотите, чтобы ваша работа имела смысл и чувствуете, что ваша работа важна.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "c094c360-ae1f-41d6-b75e-41ba8d5be492",
+    "title": "Команда",
+    "description": "Вам нравится работать с единомышленниками, общаться, чувствовать, что вас поддержат.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "1f09bffe-626e-4d9e-9f9f-4424cecc0d2c",
+    "title": "Статус",
+    "description": "Ваша позиция в компании подчеркивает ваш профессионализм, вы заметны среди коллег.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "340ccb29-1f33-418b-a740-05e10b8aadb7",
+    "title": "Общение",
+    "description": "Вы цените возможность живого общения, влияние на других и помощь людям.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "59fd6cd2-5ad8-4881-9638-692fb5c96d36",
+    "title": "Фидбэк",
+    "description": "Вы цените возможность получения обратной связи и работы с руководством.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "6bcc48ce-b6cd-41fd-93b2-a975cf60127b",
+    "title": "",
+    "description": "",
+    "icon": "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled"
+  },
+  {
+    "id": "315f7d4f-e415-409b-b346-b1a8ebf515b7",
+    "title": "dasda",
+    "description": "dsada",
+    "icon": "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled"
+  }
+]
