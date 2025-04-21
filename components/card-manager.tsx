@@ -7,6 +7,18 @@ import { addCard, updateCard, deleteCard } from "@/lib/actions"
 import type { MotivationCard } from "@/lib/types"
 
 export default function CardManager({ initialCards }: { initialCards: MotivationCard[] }) {
+  const [cardscur, setcardscur] = useState(initialCards)
+  useEffect(() => {
+    const cards = JSON.parse(localStorage.getItem("selectedCards") || "[]");
+
+    if (cards.length === 0) {
+
+      localStorage.setItem("selectedCards", JSON.stringify(cards));
+    } else {
+      setcardscur(cards)
+    }
+    }, []);
+
   const [cards, setCards] = useState<MotivationCard[]>(initialCards)
   const [custom, setCustom] = useState(false)
 
@@ -31,6 +43,9 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
       description: newCard.description,
       icon: newCard.icon || "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
     })
+    const existingCards = JSON.parse(localStorage.getItem("selectedCards") || "[]")
+    existingCards.push(card)
+    localStorage.setItem("selectedCards", JSON.stringify(existingCards))
 
     setCards([...cards, card])
     setNewCard({
@@ -44,14 +59,16 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
     if (!editingCard) return
 
     const updatedCard = await updateCard(editingCard)
+    const existingCards = JSON.parse(localStorage.getItem("selectedCards") || "[]")
+    const updatedCards = existingCards.map((card: { id: string }) => (card.id === updatedCard.id ? updatedCard : card))
+    localStorage.setItem("selectedCards", JSON.stringify(updatedCards))
     setCards(cards.map((card) => (card.id === updatedCard.id ? updatedCard : card)))
-    setEditingCard(null)
-  }
+    setEditingCard(null)  }
 
   const handleDeleteCard = async (id: string) => {
     await deleteCard(id)
     setCards(cards.filter((card) => card.id !== id))
-    localStorage.setItem("selectedCards", JSON.stringify(cards.filter((card) => card.id !== id))) 
+    localStorage.setItem("selectedCards", JSON.stringify(cards.filter((card) => card.id !== id)))   
     window.location.reload()
   }
 
@@ -112,7 +129,7 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
       <div>
         <h3 className="text-lg font-medium mb-4">Существующие карты</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {cards.map((card) => (
+          {cardscur.map((card) => (
             <div key={card.id} className="overflow-hidden border rounded-lg shadow">
               <div className="bg-gray-800 text-white p-3">
                 <h4 className="text-sm font-medium">{card.title}</h4>
@@ -205,6 +222,7 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
 
         </div>
       )}
+      <div className= "mt-4 px-4 py-4">
           <button  
                       onClick={() => {
                         const selectedCards = JSON.parse(localStorage.getItem('selectedCards') || '[]')
@@ -236,6 +254,7 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
                     localStorage.setItem('selectedCards', JSON.stringify(jsonData))
                     setCustom(true)
                     alert('Конфиг успешно загружен!')
+                    console.log(jsonData)
                     window.location.reload()
                   }
                   reader.readAsText(file)
@@ -243,10 +262,11 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
               }
               fileInput.click()
             }}
-            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md transition-colors"
+            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md transition-colors ml-2"
           >
             Загрузить мой конфиг карточек
           </button>
+          </div>
     </div>
   )
 }
