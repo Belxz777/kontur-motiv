@@ -80,7 +80,7 @@ function getDefaultCards(): MotivationCard[] {
       id: uuidv4(),
       title: "Статус",
       description: "Ваша позиция в компании подчеркивает ваш профессионализм, вы заметны среди коллег.",
-      icon: "/placeholder.svg?height=64&width=64",
+      icon: "./status.png",
     },
     {
       id: uuidv4(),
