@@ -1,56 +1,74 @@
 [
   {
-    "id": "0839ac98-24b3-4370-bfdf-7afad71fec48",
+    "id": "1c0d47bd-c291-469f-a0f1-2d33ea6fbd75",
     "title": "Экспертность",
     "description": "Помогать принимать важные решения, задавать стандарты в команде.",
     "icon": "/placeholder.svg?height=64&width=64"
   },
   {
-    "id": "eb1c9583-7f36-4e65-97ef-6eba9ccb4917",
+    "id": "674b1f53-5519-4c87-9c17-8cb112923015",
+    "title": "Творчество",
+    "description": "Вам хочется придумывать нестандартные решения, создавать что-то новое и необычное.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "f5651524-b642-48f2-830a-6f33342a4f7b",
+    "title": "Образ жизни",
+    "description": "Вы цените комфортный ритм жизни, гибкость и баланс между делами и личным временем.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "4725232a-ab39-4fd9-a06f-056ce4a53a1f",
     "title": "Заработок",
     "description": "Ваш труд должен справедливо вознаграждаться, для вас важна возможность для роста дохода.",
     "icon": "/placeholder.svg?height=64&width=64"
   },
   {
-    "id": "53f39adf-095f-4105-8365-0bfd7717f5ac",
+    "id": "e32e41e4-be7a-4595-a980-94df91078a86",
     "title": "Вклад",
     "description": "Вы хотите, чтобы ваша работа имела смысл и чувствуете, что ваша работа важна.",
     "icon": "/placeholder.svg?height=64&width=64"
   },
   {
-    "id": "c094c360-ae1f-41d6-b75e-41ba8d5be492",
+    "id": "34f22e62-6e5d-4b53-9c2b-42141b917886",
     "title": "Команда",
     "description": "Вам нравится работать с единомышленниками, общаться, чувствовать, что вас поддержат.",
     "icon": "/placeholder.svg?height=64&width=64"
   },
   {
-    "id": "1f09bffe-626e-4d9e-9f9f-4424cecc0d2c",
+    "id": "2d85fc19-764f-4c1b-982b-49fbfc1afbd2",
     "title": "Статус",
     "description": "Ваша позиция в компании подчеркивает ваш профессионализм, вы заметны среди коллег.",
     "icon": "/placeholder.svg?height=64&width=64"
   },
   {
-    "id": "340ccb29-1f33-418b-a740-05e10b8aadb7",
+    "id": "db0a0c0c-c961-4d7d-a332-f1466b853ac2",
     "title": "Общение",
     "description": "Вы цените возможность живого общения, влияние на других и помощь людям.",
     "icon": "/placeholder.svg?height=64&width=64"
   },
   {
-    "id": "59fd6cd2-5ad8-4881-9638-692fb5c96d36",
-    "title": "Фидбэк",
-    "description": "Вы цените возможность получения обратной связи и работы с руководством.",
+    "id": "754d851a-c4be-4482-996d-a70b4fac083e",
+    "title": "Вызов",
+    "description": "Вам интересны сложные задачи, которые заставляют вас расти и учиться новому.",
     "icon": "/placeholder.svg?height=64&width=64"
   },
   {
-    "id": "6bcc48ce-b6cd-41fd-93b2-a975cf60127b",
-    "title": "",
-    "description": "",
+    "id": "fb2c57fe-4d0d-406f-b1b2-1d90203210da",
+    "title": "Лидерство",
+    "description": "Вы хотите вести за собой команду, принимать решения, влиять на других на равных.",
+    "icon": "/placeholder.svg?height=64&width=64"
+  },
+  {
+    "id": "57c8f376-b86c-4839-9b61-5108bd3f7077",
+    "title": "Жизнь",
+    "description": "выфвф",
     "icon": "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled"
   },
   {
-    "id": "315f7d4f-e415-409b-b346-b1a8ebf515b7",
-    "title": "dasda",
-    "description": "dsada",
+    "id": "28911d80-bebc-45fb-98c8-07ffbef505a9",
+    "title": "fsdf",
+    "description": "sdfs",
     "icon": "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled"
   }
 ]

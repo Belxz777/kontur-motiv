@@ -61,7 +61,7 @@ function SortableCard({
         }}
       >
         <div className="bg-gray-800 text-white p-3 flex justify-between items-center">
-          <h3 className="text-sm font-medium">{card.title}</h3>
+          <h3 className="text-lg font-bold">{card.title}</h3>
           {/* {isSelected && (
             <div className="bg-blue-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
               ✓
@@ -69,8 +69,8 @@ function SortableCard({
           )} */}
         </div>
         <div className="p-4 flex flex-col items-center">
-          <div className="w-16 h-16 mb-3 flex items-center justify-center">
-            {card.icon && <Image src={card.icon || "/placeholder.svg"} alt={card.title} width={64} height={64} />}
+          <div className="w-24  h-24 mb-3 flex items-center justify-center  rounded-2xl">
+            {card.icon && <Image src={card.icon || "/placeholder.svg"} alt={card.title} width={100} height={100} />}
           </div>
           <p className="text-xs text-center">{card.description}</p>
         </div>

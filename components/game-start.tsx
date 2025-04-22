@@ -7,16 +7,26 @@ import type { MotivationCard } from "@/lib/types"
 
 export default function GameStart({ cards }: { cards: MotivationCard[] }) {
   const [gameState, setGameState] = useState<"start" | "deck" | "game">("start")
+  const [cardscur, setcardscur] = useState(cards)
   useEffect(() => {
+    const cards = JSON.parse(localStorage.getItem("selectedCards") || "[]");
+
+    if (cards.length === 0) {
+      setGameState("deck");
       localStorage.setItem("selectedCards", JSON.stringify(cards));
-  }, [])
+    } else {
+      setGameState("game");
+      setcardscur(cards)
+    }
+    }, []);
+
   const handleStartGame = () => {
-    setGameState("deck")
-  }
+    setGameState("deck");
+  };
 
   const handleSpreadDeck = () => {
-    setGameState("game")
-  }
+    setGameState("game");
+  };
 
   if (gameState === "start") {
     return (
@@ -58,7 +68,7 @@ export default function GameStart({ cards }: { cards: MotivationCard[] }) {
           </button>
         </motion.div>
       </motion.div>
-    )
+    );
   }
 
   if (gameState === "deck") {
@@ -88,7 +98,7 @@ export default function GameStart({ cards }: { cards: MotivationCard[] }) {
             которые вам подходят.
           </motion.p>
         </div>
-        <motion.div
+        {/* <motion.div
           className="relative w-64 h-80 mb-8"
           initial={{ rotateY: 180 }}
           animate={{ rotateY: 0 }}
@@ -157,7 +167,7 @@ export default function GameStart({ cards }: { cards: MotivationCard[] }) {
               </motion.h3>
             </div>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -173,8 +183,8 @@ export default function GameStart({ cards }: { cards: MotivationCard[] }) {
           </button>
         </motion.div>
       </motion.div>
-    )
+    );
   }
 
-  return <MotivationCards cards={cards} />
+  return <MotivationCards cards={cardscur} />;
 }
