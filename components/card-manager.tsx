@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import Image from "next/image"
 import { v4 as uuidv4 } from "uuid"
 import { addCard, updateCard, deleteCard } from "@/lib/actions"
@@ -71,6 +71,21 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
     localStorage.setItem("selectedCards", JSON.stringify(cards.filter((card) => card.id !== id)))   
     window.location.reload()
   }
+  const [files, setFiles] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/getFiles')
+      .then(res => res.json())
+      .then(data => {
+        setFiles(data.files || []);
+        setLoading(false);
+      });
+  }, []);
+
+  const [file, setFile] = useState<File | null>(null);
+  const [status, setStatus] = useState<string>('');
+
 
   return (
     <div>
@@ -267,6 +282,25 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
             Загрузить мой конфиг карточек
           </button>
           </div>
+          <footer className="flex flex-col">
+     <h1>  Правила</h1>    
+       <h2>Локальные картинки находятся в папке public </h2>    
+       <h1>файлы</h1>
+      <ul>
+        {(files as { name: string, path: string }[]).map((file, index) => (
+          <li key={index}>
+            <a href={file.path} target="_blank" rel="noopener noreferrer">
+     {file.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p>также можно посмотреть содержимое public по роуту 
+      <pre className=" bg-slate-400">/api/getFiles</pre>
+      </p>
+<h1>Рекомендую загружать картинки с абсолютным url</h1>
+<pre className=" text-red-700 font-extrabold  text-3xl">ФУНКЦИЯ ЗАГРУЗКИ НАХОДИТСЯ В РАБОТЕ! </pre>
+                  </footer>
     </div>
   )
 }

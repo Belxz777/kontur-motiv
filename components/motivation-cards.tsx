@@ -55,7 +55,7 @@ function SortableCard({
     >
       <div
         className={`cursor-grab active:cursor-grabbing transition-all rounded-lg overflow-hidden border   ${isDragging ? "shadow-xl" : "shadow"} bg-white`}
-        onClick={(e) => {
+        onDoubleClick={(e) => {
           e.stopPropagation()
           onClick()
         }}
@@ -254,7 +254,7 @@ export default function MotivationCards({ cards }: { cards: MotivationCard[] }) 
 
       <div className="mb-6">
         <p className="text-gray-600">
-          Перетаскивайте карты, чтобы изменить их порядок. Нажмите на карту, чтобы выбрать её для результатов.
+          Перетаскивайте карты, чтобы изменить их порядок.
         </p>
       </div>
 
@@ -266,14 +266,13 @@ export default function MotivationCards({ cards }: { cards: MotivationCard[] }) 
         modifiers={[restrictToParentElement]}
       >
         <SortableContext items={sortedCards.map((card) => card.id)} strategy={rectSortingStrategy}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8 select-none">
             {sortedCards.map((card, index) => (
               <SortableCard
                 key={card.id}
                 card={card}
                 index={index}
-                // isSelected={selectedCards.includes(card.id)}
-                onClick={() => handleCardClick(card.id)}
+                onClick={() => handleCardDetails(card.id)}
               />
             ))}
           </div>
@@ -291,22 +290,22 @@ export default function MotivationCards({ cards }: { cards: MotivationCard[] }) 
       {activeCard && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-20" onClick={() => setActiveCard(null)}>
           <motion.div
-            className="bg-white rounded-lg shadow-lg max-w-md w-full p-6"
+            className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 select-none"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.2 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-xl font-bold mb-4">{sortedCards.find((c) => c.id === activeCard)?.title}</h3>
+            <h3 className="text-xl font-bold mb-4 text-center">{sortedCards.find((c) => c.id === activeCard)?.title}</h3>
             <div className="mb-6 flex justify-center">
-              <div className="w-24 h-24">
+              <div className="w-24 h-24 select-none">
                 {sortedCards.find((c) => c.id === activeCard)?.icon && (
                   <Image src={sortedCards.find((c) => c.id === activeCard)?.icon || ""} alt="" width={96} height={96} />
                 )}
               </div>
             </div>
-            <p className="mb-6">{sortedCards.find((c) => c.id === activeCard)?.description}</p>
-            <div className="flex justify-end space-x-3">
+            <p className="mb-6  font-medium text-center">{sortedCards.find((c) => c.id === activeCard)?.description}</p>
+            {/* <div className="flex justify-end space-x-3">
               <button
                 onClick={() => setActiveCard(null)}
                 className="px-4 py-2 border border-gray-300 hover:bg-gray-100 rounded-md transition-colors"
@@ -322,7 +321,7 @@ export default function MotivationCards({ cards }: { cards: MotivationCard[] }) 
               >
                 {selectedCards.includes(activeCard) ? "Отменить выбор" : "Выбрать"}
               </button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       )}
