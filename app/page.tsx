@@ -70,7 +70,7 @@ export default async function Home() {
       "id": "fb2c57fe-4d0d-406f-b1b2-1d90203210da",
       "title": "Лидерство",
       "description": "Вы хотите вести за собой команду, принимать решения, влиять на других на равных.",
-      "icon": "/placeholder.svg?height=64&width=64"
+      "icon": "https://storage.yandexcloud.net/filesup/kontur/%D1%81.png"
     }
   ]
   const cards = JSON.parse(JSON.stringify(routh))
