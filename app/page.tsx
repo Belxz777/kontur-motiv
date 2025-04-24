@@ -3,84 +3,84 @@ import Link from "next/link"
 import { Suspense, useEffect } from "react"
 
 import GameStart from "@/components/game-start"
-import expert from '@/public/expert.png'
-import team from '@/public/team.png'
-import leader from '@/public/lidership.png'
-import creative from '@/public/creativity.png'
-import lifestyle from '@/public/lifestyle.png'
-import challenge from '@/public/vis.png'
-import feedback from '@/public/feedback.png'
-import payment from '@/public/payment.png'
-import talk from '@/public/talk.png'
-import status from '@/public/status.png'
-import contribution from '@/public/contribution.png'
+// import expert from '@/public/expert.png'
+// import team from '@/public/team.png'
+// import leader from '@/public/lidership.png'
+// import creative from '@/public/creativity.png'
+// import lifestyle from '@/public/lifestyle.png'
+// import challenge from '@/public/vis.png'
+// import feedback from '@/public/feedback.png'
+// import payment from '@/public/payment.png'
+// import talk from '@/public/talk.png'
+// import status from '@/public/status.png'
+// import contribution from '@/public/contribution.png'
 export default async function Home() {
   const routh = [
     {
       "id": "1c0d47bd-c291-469f-a0f1-2d33ea6fbd75",
       "title": "Экспертность",
       "description": "Помогать принимать важные решения, задавать стандарты в команде.",
-      "icon": expert
+      "icon": "expert.png"
     },
     {
       "id": "674b1f53-5519-4c87-9c17-8cb112923015",
       "title": "Творчество",
       "description": "Вам хочется придумывать нестандартные решения, создавать что-то новое и необычное.",
-      "icon": creative
+      "icon": "creativity.png"
     },
     {
       "id": "f5651524-b642-48f2-830a-6f33342a4f7b",
       "title": "Образ жизни",
       "description": "Вы цените комфортный ритм жизни, гибкость и баланс между делами и личным временем.",
-      "icon":lifestyle
+      "icon":"lifestyle.png"
     },
     {
       "id": "4725232a-ab39-4fd9-a06f-056ce4a53a1f",
       "title": "Заработок",
       "description": "Ваш труд должен справедливо вознаграждаться, для вас важна возможность для роста дохода.",
-      "icon":payment
+      "icon":"payment.png"
     },
     {
       "id": "e32e41e4-be7a-4595-a980-94df91078a86",
       "title": "Вклад",
       "description": "Вы хотите, чтобы ваша работа имела смысл и чувствуете, что ваша работа важна.",
-      "icon": contribution
+      "icon": "contribution.png"
     },
     {
       "id": "34f22e62-6e5d-4b53-9c2b-42141b917886",
       "title": "Команда",
       "description": "Вам нравится работать с единомышленниками, общаться, чувствовать, что вас поддержат.",
-      "icon": team
+      "icon": "team.png"
     },
     {
       "id": "2d85fc19-764f-4c1b-982b-49fbfc1afbd2",
       "title": "Статус",
       "description": "Ваша позиция в компании подчеркивает ваш профессионализм, вы заметны среди коллег.",
-      "icon": status
+      "icon": "status.png"
     },
     {
       "id": "db0a0c0c-c961-4d7d-a332-f1466b853ac2",
       "title": "Общение",
       "description": "Вы цените возможность живого общения, влияние на других и помощь людям.",
-      "icon": talk
+      "icon": "talk.png"
     },
     {
       "id": "754d851a-c4be-4482-996d-a70b4fac083e",
       "title": "Вызов",
       "description": "Вам интересны сложные задачи, которые заставляют вас расти и учиться новому.",
-      "icon": challenge
+      "icon": "challenge.png"
     },
     {
       "id": "09fe1efc-4615-4fc7-bfa2-789c92eaad07",
       "title": "Фидбэк",
       "description": "Вы цените возможность получения обратной связи и работы с руководством.",
-      "icon": feedback
+      "icon": "feedback.png"
     },
     {
       "id": "fb2c57fe-4d0d-406f-b1b2-1d90203210da",
       "title": "Лидерство",
       "description": "Вы хотите вести за собой команду, принимать решения, влиять на других на равных.",
-      "icon": leader
+      "icon": "lidership.png"
     }  ]
   const cards = JSON.parse(JSON.stringify(routh))
   return (

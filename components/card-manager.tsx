@@ -5,6 +5,7 @@ import Image from "next/image"
 import { v4 as uuidv4 } from "uuid"
 import { addCard, updateCard, deleteCard } from "@/lib/actions"
 import type { MotivationCard } from "@/lib/types"
+import { useRouter } from "next/navigation"
 
 export default function CardManager({ initialCards }: { initialCards: MotivationCard[] }) {
   const [cardscur, setcardscur] = useState(initialCards)
@@ -21,7 +22,7 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
 
   const [cards, setCards] = useState<MotivationCard[]>(initialCards)
   const [custom, setCustom] = useState(false)
-
+const router = useRouter()
 
 
   if (!cards) {
@@ -53,6 +54,7 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
     description: "",
       icon: "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
     })
+    window.location.reload()
   }
 
   const handleUpdateCard = async () => {
@@ -63,7 +65,9 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
     const updatedCards = existingCards.map((card: { id: string }) => (card.id === updatedCard.id ? updatedCard : card))
     localStorage.setItem("selectedCards", JSON.stringify(updatedCards))
     setCards(cards.map((card) => (card.id === updatedCard.id ? updatedCard : card)))
-    setEditingCard(null)  }
+    setEditingCard(null)  
+    window.location.reload()
+  }
 
   const handleDeleteCard = async (id: string) => {
     await deleteCard(id)
@@ -189,7 +193,7 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
                   onChange={(e) =>
                     setEditingCard({
                       ...editingCard,
-                      description: e.target.value
+                      title: e.target.value
                     })
                   }
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
@@ -238,7 +242,10 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
         </div>
       )}
       <div className= "mt-4 px-4 py-4">
-          <button  
+
+          </div>
+       <footer className=" flex justify-end ">
+       <button  
                       onClick={() => {
                         const selectedCards = JSON.parse(localStorage.getItem('selectedCards') || '[]')
                         const dataStr = JSON.stringify(selectedCards, null, 2)
@@ -281,26 +288,16 @@ export default function CardManager({ initialCards }: { initialCards: Motivation
           >
             Загрузить мой конфиг карточек
           </button>
-          </div>
-          <footer className="flex flex-col">
-     <h1>  Правила</h1>    
-       <h2>Локальные картинки находятся в папке public </h2>    
-       <h1>файлы</h1>
-      <ul>
-        {(files as { name: string, path: string }[]).map((file, index) => (
-          <li key={index}>
-            <a href={file.path} target="_blank" rel="noopener noreferrer">
-     {file.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <p>также можно посмотреть содержимое public по роуту 
-      <pre className=" bg-slate-400">/api/getFiles</pre>
-      </p>
-<h1>Рекомендую загружать картинки с абсолютным url</h1>
-<pre className=" text-red-700 font-extrabold  text-3xl">ФУНКЦИЯ ЗАГРУЗКИ НАХОДИТСЯ В РАБОТЕ! </pre>
-                  </footer>
+<button             className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md transition-colors ml-2"
+onClick={
+  ()=>{
+    router.push("/docs")
+  }
+}
+>
+  Документация
+</button>
+       </footer>
     </div>
   )
 }

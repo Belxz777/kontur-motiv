@@ -2,6 +2,7 @@ import { Suspense } from "react"
 import Link from "next/link"
 import CardManager from "@/components/card-manager"
 import { getCards } from "@/lib/cards"
+import { MotivationCard } from "@/lib/types"
 
 export default async function AdminPage() {
   const cards = await getCards()
