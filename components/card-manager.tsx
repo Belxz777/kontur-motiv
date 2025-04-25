@@ -45,6 +45,7 @@ const router = useRouter()
       icon: newCard.icon || "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
     })
     const existingCards = JSON.parse(localStorage.getItem("selectedCards") || "[]")
+    console.log('before',existingCards)
     existingCards.push(card)
     localStorage.setItem("selectedCards", JSON.stringify(existingCards))
 
@@ -54,6 +55,7 @@ const router = useRouter()
     description: "",
       icon: "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
     })
+    console.log('after',existingCards,card)
     window.location.reload()
   }
 
@@ -73,6 +75,7 @@ const router = useRouter()
     await deleteCard(id)
     setCards(cards.filter((card) => card.id !== id))
     localStorage.setItem("selectedCards", JSON.stringify(cards.filter((card) => card.id !== id)))   
+    console.log('after',localStorage.getItem("selectedCards") )
     window.location.reload()
   }
   const [files, setFiles] = useState([]);
