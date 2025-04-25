@@ -46,7 +46,7 @@ export default async function Home() {
       "id": "2d85fc19-764f-4c1b-982b-49fbfc1afbd2",
       "title": "Статус",
       "description": "Ваша позиция в компании подчеркивает ваш профессионализм, вы заметны среди коллег.",
-      "icon": "/placeholder.svg?height=64&width=64"
+      "icon": ""
     },
     {
       "id": "db0a0c0c-c961-4d7d-a332-f1466b853ac2",
