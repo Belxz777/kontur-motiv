@@ -2,7 +2,7 @@ export interface MotivationCard {
   id: string
   title: string
   description: string
-  icon: string
+  icon: any
 }
 
 export interface HistoryEntry {

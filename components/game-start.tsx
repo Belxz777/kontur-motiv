@@ -13,9 +13,11 @@ export default function GameStart({ cards }: { cards: MotivationCard[] }) {
 
     if (cards.length === 0) {
       setGameState("deck");
-      localStorage.setItem("selectedCards", JSON.stringify(cards));
+      localStorage.setItem("selectedCards", JSON.stringify(cardscur));
+    console.log(cardscur)
     } else {
       setGameState("game");
+      console.log('cd',cards)
       setcardscur(cards)
     }
     }, []);
@@ -179,7 +181,7 @@ export default function GameStart({ cards }: { cards: MotivationCard[] }) {
             onClick={handleSpreadDeck}
             className="px-8 py-6 text-lg bg-blue-500 hover:bg-blue-600 text-white rounded-md transition-colors shadow-md"
           >
-            Разложить колоду
+           Начать игру
           </button>
         </motion.div>
       </motion.div>
