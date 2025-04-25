@@ -39,11 +39,18 @@ const router = useRouter()
       return
     }
 
-    const card = await addCard({
-      title: newCard.title,
+    // const card = await addCard({
+    //   title: newCard.title,
+    //   description: newCard.description,
+    //   icon: newCard.icon || "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
+    // })
+    const card = {
+id:uuidv4(),
+            title: newCard.title,
       description: newCard.description,
       icon: newCard.icon || "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
-    })
+   
+    }
     const existingCards = JSON.parse(localStorage.getItem("selectedCards") || "[]")
     console.log('before',existingCards)
     existingCards.push(card)
@@ -62,7 +69,7 @@ const router = useRouter()
   const handleUpdateCard = async () => {
     if (!editingCard) return
 
-    const updatedCard = await updateCard(editingCard)
+    const updatedCard = editingCard
     const existingCards = JSON.parse(localStorage.getItem("selectedCards") || "[]")
     const updatedCards = existingCards.map((card: { id: string }) => (card.id === updatedCard.id ? updatedCard : card))
     localStorage.setItem("selectedCards", JSON.stringify(updatedCards))
@@ -72,7 +79,7 @@ const router = useRouter()
   }
 
   const handleDeleteCard = async (id: string) => {
-    await deleteCard(id)
+    // await deleteCard(id)
     setCards(cards.filter((card) => card.id !== id))
     localStorage.setItem("selectedCards", JSON.stringify(cards.filter((card) => card.id !== id)))   
     console.log('after',localStorage.getItem("selectedCards") )
@@ -89,10 +96,6 @@ const router = useRouter()
         setLoading(false);
       });
   }, []);
-
-  const [file, setFile] = useState<File | null>(null);
-  const [status, setStatus] = useState<string>('');
-
 
   return (
     <div>
