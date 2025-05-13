@@ -104,6 +104,8 @@ className="border border-blue-100 rounded-lg p-6 hover:bg-blue-50 transition">
 </ul>
 </div>
 <h1>Рекомендую загружать картинки с абсолютным url</h1>
+<h1>ПРи загрузке конфига карточек своего указывате любой уникальный id можно не uuid 4 формата (Константин)</h1>
+
 {/* <pre className=" text-red-700 font-extrabold  text-3xl">ФУНКЦИЯ ЗАГРУЗКИ НАХОДИТСЯ В РАБОТЕ! </pre> */}
                 
                   </div>
