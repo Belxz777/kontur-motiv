@@ -11,38 +11,43 @@ return (
 <div className="min-h-screen bg-blue-50">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-3xl font-bold text-blue-800 mb-6">
- Документация
-          </h1>
+          <div className='flex items-center justify-between mb-6'>
+                 
+                  <h1 className="text-3xl font-bold text-blue-800 mb-6">
+                    Документация
+                  </h1>
+                   <h1 className="text-xl font-bold items-end  ">
+                    <span className="text-gray-800">Контур</span>
+                    <span className="text-blue-500">Мотивация</span>
+                  </h1>
+                  </div>
           <div className="prose prose-blue max-w-none">
+          
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-Основыне моменты
-              </h2>
-              <p className="text-gray-600">
-Здесь описаны основные функциональные особенности и детали работы приложения              </p>
-            </section>
-            <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-blue-700 mb-4">
-               Разделы
-              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div 
                   onClick={() => setshowDetails('basic')} 
                   className="border border-blue-100 rounded-lg p-6 hover:bg-blue-50 transition cursor-pointer"
                 >
-                  <h3 className="text-xl font-medium text-blue-600 mb-2">
-                    Основные понятия
+                  <h3 className="text-2xl font-bold text-blue-600 mb-2">
+                    Работа приложения
                   </h3>
-                  <p className="text-gray-600">
-                    Изучение базы
-                  </p>
+          
+                </div>
+                   <div 
+                  onClick={() => setshowDetails('advanced')} 
+                  className="border border-blue-100 rounded-lg p-6 hover:bg-blue-50 transition cursor-pointer"
+                >
+                  <h3 className="text-2xl font-bold text-blue-500 mb-2">
+                    Технические особенности
+                  </h3>
+          
                 </div>
                  <div
-      onClick={() => setshowDetails('advanced')} 
+      onClick={() => setshowDetails('help')} 
 className="border border-blue-100 rounded-lg p-6 hover:bg-blue-50 transition">
-                  <h3 className="text-xl font-medium text-blue-600 mb-2">
-                    Дополнительная инфо
+                  <h3 className="text-2xl font-bold text-blue-500 mb-2">
+                    Контактная информация
                   </h3>
                   <p className="text-gray-600">
 
@@ -50,7 +55,7 @@ className="border border-blue-100 rounded-lg p-6 hover:bg-blue-50 transition">
                 </div>
               </div>
             </section>
-            {showDetails =="basic" ? (
+            {showDetails === "advanced" ? (
                   <div className="border border-blue-100 rounded-lg p-6 mt-4">
                     <h4 className="text-lg font-medium text-blue-600 mb-2">
 Файлы                    </h4>
@@ -89,36 +94,45 @@ className="border border-blue-100 rounded-lg p-6 hover:bg-blue-50 transition">
           </button>
         </div>
        
-        <div className=" bg-slate-300  rounded-lg mx-2 my-2 px-2 py-2">
+     
         <h4 className="text-lg font-medium text-blue-600 mb-2">
 Рекомендации
 </h4>
-<ul>
+   <div className=" bg-slate-300  rounded-lg mx-2 my-2 px-2 py-2"><ul>
     <li>
         Используйте интернет картинки(это просто сейчас есть бесплатные s3 хранилища)
     </li>
     <li>
-        При возникшей ошибке писать <strong>@telegram:belxz999</strong> <br/>
+        При возникшей ошибке писать: <strong>@telegram:belxz999</strong> <br/>
         Отправляйте скриншот по возможности
     </li>
 </ul>
 </div>
-<h1>Рекомендую загружать картинки с абсолютным url</h1>
-<h1>ПРи загрузке конфига карточек своего указывате любой уникальный id можно не uuid 4 формата (Константин)</h1>
-
-{/* <pre className=" text-red-700 font-extrabold  text-3xl">ФУНКЦИЯ ЗАГРУЗКИ НАХОДИТСЯ В РАБОТЕ! </pre> */}
-                
+      <h4 className="text-lg font-medium text-blue-600 mb-2">
+Технологический стек
+</h4>
+                      <div className=" bg-slate-300  rounded-lg mx-2 my-2 px-2 py-2">
+                        <p>
+Next js SSR 15
+Tailwind css 
+Pnpm
+JSON
+</p>
+                        </div>
                   </div>
-                )
-            :
-            <div className="border border-blue-100 rounded-lg p-6 mt-4">
-            <h4 className="text-lg font-medium text-blue-600 mb-2">
+                ) : showDetails === "basic" ? (
+                  <div className="border border-blue-100 rounded-lg p-6 mt-4">
+               
               
-            </h4>
-        <Image src="https://avatars.mds.yandex.net/i?id=f5a77b549cad33dfeecae8a97c529275_l-5466682-images-thumbs&n=13"
-        width={200} height={300} alt="Cat" />
-          </div>
-        }               
+                  </div>
+                ) : showDetails === "help" ? (
+                  <div className="border border-blue-100 rounded-lg p-6 mt-4">
+                    <h4 className="text-lg font-medium text-blue-600 mb-2">
+                      Помощь и поддержка
+                    </h4>
+                    <p>Для получения помощи обратитесь к t.me/belxz999</p>
+                  </div>
+                ) : null}               
           </div>
         </div>
       </div>

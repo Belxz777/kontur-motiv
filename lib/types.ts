@@ -3,6 +3,16 @@ export interface MotivationCard {
   title: string
   description: string
   icon: any
+  color?: string,
+  from?: string,
+  to?: string,
+  width?: number,
+  height?: number
+  boldness: number
+  background: string
+  isGradient: boolean
+  secondColor: string
+  
 }
 
 export interface HistoryEntry {
