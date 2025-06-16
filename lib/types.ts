@@ -1,5 +1,5 @@
 export interface MotivationCard {
-  id: string
+  id: number
   title: string
   description: string
   icon: any

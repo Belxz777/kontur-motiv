@@ -2,15 +2,158 @@
 
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import MotivationCards from "@/components/motivation-cards"
 import type { MotivationCard } from "@/lib/types"
+import MotivationCardsv2 from "@/components/v2/motiv-cards"
 
-export default function GameStart({ cards }: { cards: MotivationCard[] }) {
+export default function GameStartv3({ cards }: { cards: MotivationCard[] }) {
   const [gameState, setGameState] = useState<"start" | "deck" | "game">("start")
   const [cardscur, setcardscur] = useState(cards)
   useEffect(() => {
-    const cards = JSON.parse(localStorage.getItem("selectedCards") || "[]");
-
+  const routh = [
+ {
+      "id": 1,
+      "title": "Признание успехов",
+      "description": "Важно официальное признание ваших достижений, похвала и признание со стороны коллег и руководства.</br> </br> Желание быть лучшим ",
+      "icon": "4v3.jpg",
+      "color": "#fffff",
+      "boldness": 700,
+      "width":1000,
+      "height":1000,
+      "background": "#fffff",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+     {
+      "id": 2,
+      "title": "Сотрудничество",
+      "description": "Важна совместная деятельность в решении задач. Важно наличие команды, обмен опытом с коллегами, неформальное общение.",
+      "icon": "1v3.jpg",
+      "color": "#FEFEFE",
+      "width":1000,
+      "height":1000,
+      "boldness": 700,
+      "background": "FEFEFE",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 3,
+      "title": "Образ жизни",
+      "description": "Вам нравится работать с единомышленниками, общаться, чувствовать, что вас поддержат.",
+      "icon": "2v3.jpg",
+      "width":1000,
+      "height":1000,
+      "color": "#fffff",
+      "boldness": 700,
+      "background": "#F4A460",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 4,
+      "title": "Финансовый мотиватор",
+      "description": "Ваша позиция в компании подчеркивает ваш профессионализм, вы заметны среди коллег.",
+      "icon": "3v3.jpg",
+      "width":1000,
+      "height":1000,
+      "color": "#fffff",
+      "boldness": 700,
+      "background": "#fffff",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 5,
+      "title": "Отношения с руководителем",
+      "description": "Важна личность руководителя.Насколько мои качества сходятся  с его. Важны выстроенные отношения с непосредственнм/вышестоящим руководителем, обратная связь, поддержка, общение с ним.",
+      "icon": "2s.jpg",
+      "color": "#fffff",
+      "boldness": 700,
+      "background": "#fffff",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 6,
+      "title": "Содержание работы ",
+      "description": "Важен горизонтальный рост, наращивание экспертизы, работа над улучшением процессвов/продукта.",
+      "icon": "2.png",
+      "color": "#fffff",
+      "boldness": 700,
+      "background": "#fffff",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 7,
+      "title": "Ответственность, самостоятельность, полномочия", 
+      "description": "Важна свобода в принятии решений, выполнении задач, снижение контроля. Желание получить больший уровень полномочий. ",
+      "icon": "1v2.jpg",
+      "color": "#fffff",
+      "boldness": 700,
+      "background": "#fffff",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 8,
+      "title": "Достижения ",
+      "description": "Ориентация на достижение собственных целей, результат важнее процесса. Важна собственная оценка результатов(достиг/не достиг), внешняя оценка менее важна.",
+      "icon": "2v2.jpg",
+      "color": "#fffff",
+      "boldness": 700,
+      "background": "#fffff",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 9,
+      "title": "Общение",
+      "description": "Вы цените возможность живого общения, влияние на других и помощь людям.",
+      "icon": "talk.png",
+      "color": "#fffff",
+      "boldness": 700,
+      "background": "#fffffs",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 10,
+      "title": "Вызов",
+      "description": "Важен горизонтальный рост, желание быть руководителем, влиять на другие, расти по вертикальной карьерной лестнице.",
+      "icon": "1.png",
+      "from":"#4B0082",
+      "to":"#0000FF",
+      "boldness": 1000, 
+      "width":1000,
+      "height":1000,
+      "background":"#1A0C41",
+      "isGradient": true,
+      "secondColor": "#FFFFFF"
+    },
+    {
+      "id": 11,
+      "title": "Фидбэк",
+      "description": "Вы цените возможность получения обратной связи и работы с руководством.",
+      "icon": "feedback.png",
+      "color": "#fffff",
+      "boldness": 700,
+      "background": "#fffff",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    },
+    {
+      "id": 12,
+      "title": "Лидерство",
+      "description": "Вы хотите вести за собой команду, принимать решения, влиять на других на равных.",
+      "icon": "lidership.png",
+      "color": "#ADFF2F",
+      "boldness": 1000,
+      "background": "#FFFFE0",
+      "isGradient": false,
+      "secondColor": "#fffff"
+    }  ]  
+       const cards = JSON.parse(JSON.stringify(routh))
     if (cards.length === 0) {
       setGameState("deck");
       localStorage.setItem("selectedCards", JSON.stringify(cardscur));
@@ -188,5 +331,5 @@ export default function GameStart({ cards }: { cards: MotivationCard[] }) {
     );
   }
 
-  return <MotivationCards cards={cardscur} />;
+  return <MotivationCardsv2 cards={cardscur} />;
 }

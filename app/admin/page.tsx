@@ -10,7 +10,7 @@ export default async function AdminPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-<Header/>
+<Header color="bg-gradient-to-r from-[#A97FFF] to-[#CF70AC] bg-clip-text text-transparent"/>
 
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="bg-white shadow rounded-lg p-6">

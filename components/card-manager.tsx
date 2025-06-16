@@ -39,17 +39,15 @@ const router = useRouter()
       return
     }
 
-    // const card = await addCard({
-    //   title: newCard.title,
-    //   description: newCard.description,
-    //   icon: newCard.icon || "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
-    // })
-    const card = {
-id:uuidv4(),
-            title: newCard.title,
+    const card: MotivationCard = {
+      id: uuidv4(),
+      title: newCard.title,
       description: newCard.description,
       icon: newCard.icon || "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
-   
+      boldness: 400,
+      background: "#ffffff",
+      isGradient: false,
+      secondColor: "#ffffff"
     }
     const existingCards = JSON.parse(localStorage.getItem("selectedCards") || "[]")
     console.log('before',existingCards)
@@ -58,14 +56,13 @@ id:uuidv4(),
 
     setCards([...cards, card])
     setNewCard({
-    title: "",
-    description: "",
+      title: "",
+      description: "",
       icon: "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
     })
     console.log('after',existingCards,card)
     window.location.reload()
   }
-
   const handleUpdateCard = async () => {
     if (!editingCard) return
 
