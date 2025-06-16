@@ -19,14 +19,7 @@ onClick={
             >Мотивация</span>
             {verstext && <div className="text-xs text-gray-500">{verstext}</div>}
           </h1>
-          <nav className="flex space-x-4">
-            <Link href="/" className="px-3 py-2 text-gray-700 font-medium">
-              Игра
-            </Link>
-            <Link href="/admin" className="px-3 py-2 text-gray-500 hover:text-gray-700">
-             Своя игра
-            </Link>
-          </nav>
+        
           
                     <select className="text-sm border border-gray-300 rounded-md px-2 py-1"
       value={'/'}
@@ -40,8 +33,10 @@ onClick={
                       <option value="v1">Версия рейнбоу (v1)</option>
                       <option value="v2">Версия `ничего лишнего `(v2)</option>
                       <option value="v3">Версия `ненавижу png`(v3)</option>
-                    </select>          
-        </div>
-      </header>
+                      <option value="admin">Своя игра</option>
+                      <option value="docs">Документация</option>
+                    </select>
+                        
+        </div>      </header>
   )
 }
