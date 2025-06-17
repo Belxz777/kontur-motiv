@@ -30,11 +30,10 @@ onClick={
       }
                     >
                       <option value="/">Выберите версию</option>
-                      <option value="v1">Версия рейнбоу (v1)</option>
-                      <option value="v2">Версия `ничего лишнего `(v2)</option>
-                      <option value="v3">Версия `ненавижу png`(v3)</option>
-                      <option value="admin">Своя игра</option>
-                      <option value="docs">Документация</option>
+                      <option value="v1">Версия №1 </option>
+                      <option value="v2">Версия №2</option>
+                      <option value="v3">Версия №3</option>
+     
                     </select>
                         
         </div>      </header>
