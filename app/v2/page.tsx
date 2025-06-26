@@ -154,7 +154,7 @@ export default async function Home() {
   console.log(cards)
   return (
     <div className="min-h-screen bg-gray-100">
-<Header color="text-blue-500" verstext="версия `ничего лишнего`(v2)" />
+<Header color="text-blue-500" verstext="версия 2" />
 
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <Suspense fallback={<div>Загрузка...</div>}>
