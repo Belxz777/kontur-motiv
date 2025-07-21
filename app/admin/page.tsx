@@ -1,12 +1,10 @@
 import { Suspense } from "react"
 import Link from "next/link"
 import CardManager from "@/components/card-manager"
-import { getCards } from "@/lib/cards"
-import { MotivationCard } from "@/lib/types"
+import { cards, MotivationCard } from "@/lib/types"
 import Header from "@/components/header"
 
 export default async function AdminPage() {
-  const cards = await getCards()
 
   return (
     <div className="min-h-screen bg-gray-100">

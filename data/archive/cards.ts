@@ -1,23 +1,4 @@
-
-import Link from "next/link"
-import { Suspense, useEffect } from "react"
-
-import GameStart from "@/components/game-start"
-import Header from "@/components/header"
-import GameStartv2 from "@/components/v2/startv2"
-// import expert from '@/public/expert.png'
-// import team from '@/public/team.png'
-// import leader from '@/public/lidership.png'
-// import creative from '@/public/creativity.png'
-// import lifestyle from '@/public/lifestyle.png'
-// import challenge from '@/public/vis.png'
-// import feedback from '@/public/feedback.png'
-// import payment from '@/public/payment.png'
-// import talk from '@/public/talk.png'
-// import status from '@/public/status.png'
-// import contribution from '@/public/contribution.png'
-export default async function Home() {
-  const routh = [
+ const classicType = [
     {
       "id":1,
       "title": "Признание успехов",
@@ -150,17 +131,3 @@ export default async function Home() {
       "isGradient": false,
       "secondColor": "#fffff"
     }  ] 
-     const cards = JSON.parse(JSON.stringify(routh))
-  console.log(cards)
-  return (
-    <div className="min-h-screen bg-gray-100">
-<Header color="text-blue-500" verstext="версия 2" />
-
-      <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        <Suspense fallback={<div>Загрузка...</div>}>
-          <GameStartv2 cards={cards} />
-        </Suspense>
-      </main>
-    </div>
-  )
-}

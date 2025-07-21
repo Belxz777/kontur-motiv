@@ -3,7 +3,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import Image from "next/image"
 import { v4 as uuidv4 } from "uuid"
-import { addCard, updateCard, deleteCard } from "@/lib/actions"
 import type { MotivationCard } from "@/lib/types"
 import { useRouter } from "next/navigation"
 
@@ -68,17 +67,17 @@ const router = useRouter()
 
     const updatedCard = editingCard
     const existingCards = JSON.parse(localStorage.getItem("selectedCards") || "[]")
-    const updatedCards = existingCards.map((card: { id: string }) => (card.id === updatedCard.id ? updatedCard : card))
+    const updatedCards = existingCards.map((card: { id: string }) => (card.id.toString() === updatedCard.id.toString() ? updatedCard : card))
     localStorage.setItem("selectedCards", JSON.stringify(updatedCards))
     setCards(cards.map((card) => (card.id === updatedCard.id ? updatedCard : card)))
     setEditingCard(null)  
     window.location.reload()
   }
 
-  const handleDeleteCard = async (id: string) => {
+  const handleDeleteCard = async (id: string | number) => {
     // await deleteCard(id)
-    setCards(cards.filter((card) => card.id !== id))
-    localStorage.setItem("selectedCards", JSON.stringify(cards.filter((card) => card.id !== id)))   
+    setCards(cards.filter((card) => card.id.toString() !== id))
+    localStorage.setItem("selectedCards", JSON.stringify(cards.filter((card) => card.id.toString() !== id)))   
     console.log('after',localStorage.getItem("selectedCards") )
     window.location.reload()
   }
