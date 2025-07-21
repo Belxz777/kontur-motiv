@@ -15,8 +15,8 @@ export default function Start() {
     if (savedState) {
       setGameState(savedState as "start" | "game");
     }  else {
-      setGameState("game");
-      sessionStorage.setItem('gameState', 'game');
+      setGameState("start");
+      sessionStorage.setItem('gameState', 'start');
     }
   }, []);
 
