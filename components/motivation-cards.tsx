@@ -338,7 +338,7 @@ function DragOverlayCard({ card }: { card: MotivationCard }) {
       >
         <SortableContext items={sortedCards.map((card) => card.id.toString())} strategy={rectSortingStrategy}>
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8 select-none relative auto-rows-fr">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 mb-8 select-none relative auto-rows-fr">
               {sortedCards.map((card, index) => (
                 <SortableCard key={card.id} card={card} index={index} onClick={() => handleCardDetails(card.id.toString())} />
               ))}
@@ -348,7 +348,7 @@ function DragOverlayCard({ card }: { card: MotivationCard }) {
 
         <DragOverlay>
           {dragActiveCard ? (
-            <div style={{ width: "100%", maxWidth: "200px", background: "black" }}>
+            <div style={{ width: "100%", maxWidth: "300px", background: "black" }}>
               <DragOverlayCard card={dragActiveCard} />
             </div>
           ) : null}
