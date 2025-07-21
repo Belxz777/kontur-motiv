@@ -115,7 +115,7 @@ function DragOverlayCard({ card }: { card: MotivationCard }) {
           <div className="w-full h-full mb-3 flex items-center justify-center rounded-2xl">
             {card.icon && (
               <Image 
-                src={card.icon || "/challenge.png"} 
+                src={card.icon || "/not_found.png"} 
                 alt={card.title} 
                 aria-expanded="true"
                 width={card.width || 100} 
@@ -361,24 +361,36 @@ function DragOverlayCard({ card }: { card: MotivationCard }) {
           onClick={() => setActiveCard(null)}
         >
           <motion.div
-            className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 select-none"
+            className="bg-[#1A0C41] rounded-lg shadow-lg max-w-md w-full p-6 select-none"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.2 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-xl font-bold mb-4 text-center">
-              {sortedCards.find((c) => c.id.toString() === activeCard)?.title}
-            </h3>
+    
             <div className="mb-6 flex justify-center">
               <div className="w-24 h-24 select-none">
                 {sortedCards.find((c) => c.id.toString() === activeCard)?.icon && (
-                  <Image src={sortedCards.find((c) => c.id.toString() === activeCard)?.icon || ""} alt="" width={96} height={96} />
+                  <Image src={sortedCards.find((c) => c.id.toString() === activeCard)?.icon || ""} alt="card"
+                    aria-expanded="true"
+        
+                priority
+                className="rounded-xl   scale-150"  
+                    width={(240) * 1.2} 
+                height={(240) * 1.2} />
                 )}
               </div>
             </div>
-            <p className="mb-6 font-medium text-center">{sortedCards.find((c) => c.id.toString() === activeCard)?.description}</p>
-          </motion.div>
+                  <h3 className="text-xl  bg-gradient-to-r from-[#A97FFF] to-[#CF70AC] bg-clip-text text-transparent font-extrabold mb-4 text-center break-words overflow-hidden text-white">
+              {sortedCards.find((c) => c.id.toString() === activeCard)?.title}
+            </h3>
+            <p className="mb-6 font-medium text-center text-white whitespace-pre-line">
+
+  {sortedCards
+    .find((c) => c.id.toString() === activeCard)
+    ?.description.replace(/<\/?br\s*\/?>/gi, "\n")}
+            </p>
+          </motion.div> 
         </div>
       )}
 
