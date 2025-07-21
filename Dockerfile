@@ -1,21 +1,42 @@
-FROM oven/bun:1 AS base
-WORKDIR /app
-# Install dependencies only when needed
-COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile
+# Используем официальный Node.js образ на Alpine (легковесный)
+FROM node:22-alpine AS base
 
+# Устанавливаем pnpm глобально
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# ===== Этап сборки (builder) =====
+FROM base AS builder
+
+WORKDIR /app
+
+# Копируем файлы зависимостей
+COPY package.json pnpm-lock.yaml* ./
+
+# Устанавливаем зависимости (включая devDependencies)
+RUN pnpm install --frozen-lockfile
+
+# Копируем исходный код
 COPY . .
-# Rebuild the source code only when needed
-RUN bun --bun run build
-# Production image, copy all the files and run next
-FROM base AS runner
+
+# Собираем приложение
+RUN pnpm run build
+
+# ===== Этап запуска (production) =====
+FROM base AS production
+
 WORKDIR /app
 
-ENV NODE_ENV=production
+# Копируем только production-зависимости
+COPY --from=builder /app/package.json /app/pnpm-lock.yaml ./
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
+
+# Устанавливаем только production-зависимости
+RUN pnpm install --prod --frozen-lockfile
+
 
 EXPOSE 3300
 
-ENV PORT=3300
-ENV HOSTNAME="0.0.0.0"
-
-CMD ["bun" , "run", "start"]
+# Запускаем сервер
+CMD ["node", "server.js"]
